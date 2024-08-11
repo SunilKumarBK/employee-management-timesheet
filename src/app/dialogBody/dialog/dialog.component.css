@@ -1,0 +1,55 @@
+.dialog-container{
+    /* background-color:antiquewhite; */
+    /* padding:10px; */
+}
+.dialogbody{
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.dialogtitle{
+ background-color:gainsboro;
+}
+.dialogbody label{
+    font-size:15px;
+}
+button a{
+    text-decoration: none;
+    color:tomato;
+}
+.profilebtn{
+    flex-direction: row-reverse;
+    font-size: small;
+    /* border: 1px hotpink; */
+    /* background: aquamarine; */
+    align-items: end;
+    padding: 2px 5px;
+    color: deeppink;
+    width: fit-content;
+    float: inline-end;
+    display: flex;
+    border-radius: 25px;
+    cursor: pointer;
+}
+.profilebtn mat-icon{
+font-size: small;
+}
+.profilebtn:hover{
+    background-color: aliceblue;
+    /* transform: scale(1.2); */
+}
+.alerticon{
+    color: white;
+    background-color: red;
+    border-radius: 25px;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    padding: -27px;
+    width: 16px;
+    position: absolute;
+    top: 10px;
+    height: 15px;
+    right: 15px;
+}

@@ -1,0 +1,63 @@
+.card{
+   
+    padding: 2%;
+    background-color: white;
+    border: 1px solid grey;
+    width: 80%;
+    height: 100%;
+    margin-top:2%;
+    /* scroll-padding: 0; */
+    /* overflow: scroll; */
+    /* overflow-x: hidden; */
+}
+::-webkit-scrollbar {
+    display: none;
+}
+.card-body{
+    display: contents;
+}
+.add-employee-container{
+    /* padding: 5% 0 2% 0;  */
+    background-color: cornsilk;
+    width: 100%;
+
+}
+.border{
+    border-color: red;
+}
+
+.column{
+    display: flex;
+    justify-content: center;
+    gap: 10%;
+    text-align: start;
+}
+.display{   
+    display: block;
+}
+.displaynone{
+    display: none;
+}
+.error{
+    text-align: start;
+}
+.title{
+    font-size: xx-large;
+    font-weight: 500;
+    background-color: antiquewhite;
+    padding: 15px;
+    border-radius: 25px;
+    width: 100%;
+    text-align: center;
+}
+.footer{
+    width:100%;
+    text-align: center;
+}
+.form label{
+    font-weight:500;
+}
+.prevcompany{
+    margin-top: 30px;
+    /* border-top: 1px dashed red; */
+}

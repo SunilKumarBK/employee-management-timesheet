@@ -1,0 +1,11 @@
+<div class="container-fluid p-0 body">
+    <div class="app-navbar"><app-navbar></app-navbar></div>
+    <div class="app-body">
+        <div [class]="!collapse?'app-sidebar':'app-sidebar-collapse'" *ngIf="!displaynone"><app-sidebar></app-sidebar></div>
+    
+       <div class="app-routeroutlet"><router-outlet /></div> 
+    </div>
+</div>
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="ball-spin-clockwise-fade-rotating">
+    <p class="text-white">loading...</p>
+  </ngx-spinner>

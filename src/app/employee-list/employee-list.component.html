@@ -1,0 +1,93 @@
+<div class="empcontainer">
+
+  <!-- body -->
+
+
+  <div class="body container-fluid">
+    <mat-form-field>
+      <mat-label>Type to search</mat-label>
+      <input matInput name="searchvalue" [(ngModel)]="filtervalue" placeholder="xyz@mail.com" type="text" />
+      <!-- {{search.className}} -->
+      <mat-icon matSuffix fontIcon="search"></mat-icon>
+      <mat-hint> </mat-hint>
+    </mat-form-field>
+
+<div class="tablebody">
+    <table class="table table-hover table-stripped mat-elevation-z4">
+
+      <thead>
+        <tr>
+          <th [style]="'text-align:center'" class="col table-info" *ngFor="let tr of title">{{tr}}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr  *ngFor="let emp of paginatedData| filter:filtervalue" (click)="getbyid(emp)">
+          <td >{{emp.id}}</td>
+
+          <td >{{emp.empId}}</td>
+
+          <td matRipple [matRippleCentered]="true" [matRippleUnbounded]="false" (click)="openDialog(emp.empId)">{{emp.firstName}} {{emp.lastName}}</td>
+
+          <td>{{emp.email}}</td>
+
+          <td>{{emp.phoneNo}}</td>
+
+          <td>{{emp.address}}</td>
+          <!-- {{employeedata.length}} -->
+
+          <td><button mat-stroked-button [routerLink]="['/addemployee',emp.empId]"><mat-icon
+                fontIcon="edit"></mat-icon><span>Edit</span></button>
+            <button mat-stroked-button (click)="deleteDialog(emp.empId)"><mat-icon
+                fontIcon="delete">Delete</mat-icon><span>Delete</span></button>
+          </td>
+        </tr>
+      </tbody>
+
+    </table>
+  </div>
+    <app-pagination 
+    totalItems={{employeedata.length}} 
+    [itemsPerPage]="itemsPerPage" 
+    [currentPage]="currentPage"
+    (onClick)="changePage($event)"
+    >
+  </app-pagination>
+    
+    <!-- <mat-paginator #paginator [length]="employeedata.length" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]"
+      aria-label="Select page">
+    </mat-paginator> -->
+  </div>
+
+  <!-- <mat-dialog-container> -->
+  @if (deletDialog) {
+  <div class="delete-dialog">
+
+    <div class="deletedialog">
+      <div class="deletDialog-header">
+        <button class="closeIcon" (click)="closeDeleteDialog()">
+          <mat-icon fontIcon="close"></mat-icon>
+        </button>
+        <h3 mat-dialog-title>Are You Sure ?</h3>
+
+      </div>
+      <mat-dialog-content>
+        <p>delete this employee details</p>
+      </mat-dialog-content>
+
+
+      <mat-dialog-actions class="dialogActions">
+        <button mat-raised-button matDialogClose (click)="closeDeleteDialog()">No</button>
+        <button mat-raised-button (click)="delete(deleteId)">Yes</button>
+      </mat-dialog-actions>
+    </div>
+  </div>
+  }
+  <!-- </mat-dialog-container> -->
+
+
+  <!-- <ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="ball-spin-clockwise-fade-rotating">
+    <p class="text-white">loading...</p>
+  </ngx-spinner> -->
+
+
+</div>

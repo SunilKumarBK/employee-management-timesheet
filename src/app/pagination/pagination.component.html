@@ -1,0 +1,13 @@
+<nav aria-label="...">
+    <ul class="pagination">
+      <li class="page-item ">
+        <a class="page-link" [ngClass]="{disabled:currentPage == 1}" (click)="pageClicked(currentPage-1)" ><mat-icon  fontIcon="arrow_back_ios" ></mat-icon></a>
+      </li>
+      <li (click)="pageClicked(page)" *ngFor="let page of pages" class="page-item" [ngClass]="{'active':page == currentPage}">
+        <a class="page-link" href="javascript:void(0)" >{{page}}</a>
+      </li>
+      <li class="page-item" >
+        <a class="page-link" [ngClass]="{disabled:currentPage==totalPages}" (click)="pageClicked(currentPage+1)"><mat-icon  fontIcon="arrow_forward_ios" ></mat-icon></a>
+      </li>
+    </ul>
+  </nav>

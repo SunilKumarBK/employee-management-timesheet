@@ -1,0 +1,43 @@
+.chart-container{
+  width: 100%;
+  overflow: scroll;
+ 
+}
+::-webkit-scrollbar{
+  display: none;
+}
+.header{
+  padding: 1%;
+  background-color: lightgrey;
+  /* background: linear-gradient(45deg, rgba(128, 182, 244, 0.6), rgba(244, 144, 128, 0.6)); */
+  position: sticky;
+  top: 0;
+  transition: background-color 0.3s ease-in-out;
+  align-items: center;
+  display: flex;
+  justify-content: start;
+  gap: 30%;
+
+}
+.header-sticky {
+  position: sticky;
+  top: 0;
+  background-color: white; /* Background color when sticky */
+  /* Add shadow if needed */
+  /* box-shadow: 0 0 5px 0px rgba(0, 0, 0, 0.3); */
+}
+.header span{
+float: left;
+padding-left: 2%;
+}
+.header span a{
+  text-decoration: none;
+  color: black;
+}
+.header h2{
+  text-align: center;
+  margin: 0%;
+}
+.body {
+background: linear-gradient(45deg,rgba(255,255,255,0.5),rgba(255,255,255,0.5));
+}

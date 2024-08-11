@@ -1,0 +1,38 @@
+[
+    {
+        "id":5001,
+        "firstname":"Sanjay",
+        "lastname":"Sanjay",
+        "mailid":"sanjay@gmail.com",
+        "phoneno":9678564300,
+        "address":"Ramanathapuram",
+        "fathername":"dravid",
+        "dateofbirth":"27/01/2001",
+        "emergencycontact":2324455786
+        
+      },
+      {
+        "id":5001,
+        "firstname":"Sanjay",
+        "lastname":"Sanjay",
+        "mailid":"sanjay@gmail.com",
+        "phoneno":9678564300,
+        "address":"Ramanathapuram",
+        "fathername":"dravid",
+        "dateofbirth":"27/01/2001",
+        "emergencycontact":2324455786
+        
+      },
+      {
+        "id":5001,
+        "firstname":"Sanjay",
+        "lastname":"Sanjay",
+        "mailid":"sanjay@gmail.com",
+        "phoneno":9678564300,
+        "address":"Ramanathapuram",
+        "fathername":"dravid",
+        "dateofbirth":"27/01/2001",
+        "emergencycontact":2324455786
+        
+      }
+]

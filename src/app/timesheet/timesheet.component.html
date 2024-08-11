@@ -1,0 +1,26 @@
+<div >
+    <table>
+      <thead>
+        <tr>
+          <th>Employee ID</th>
+          <th>Employee Name</th>
+          <th>Login Time</th>
+          <th>Logout Time</th>
+          <th>Working Hours</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let log of timesheet">
+          <td>{{ log.empId }}</td>
+          <td>{{ log.firstname }} {{ log.lastname }}</td>
+          <td>{{ log.login_time }}</td>
+          <td>{{ log.logout_time }}</td>
+          <td>{{ log.working_hours }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div *ngIf="!timesheet.length">
+    <p>No timesheet data available.</p>
+  </div>
+  

@@ -1,0 +1,53 @@
+<div class="dialog-container " *ngIf="id">
+  <h2 mat-dialog-title class="dialogtitle">Employee Details
+     
+     <span  class="profilebtn" [routerLink]="['/employee/profile']" matDialogClose><mat-icon class="alerticon"   matTooltip="Complete details"
+      matTooltipPosition="above" *ngIf="getdocuments" matSuffix fontIcon="priority_high"></mat-icon>profile<mat-icon fontIcon="edit"></mat-icon></span>
+    </h2>
+    <mat-dialog-content class="dialogcontent" *ngIf="id">
+      <div class="dialogbody">
+        <!-- @if (id != undefined) { -->
+      <div>
+        <label><b>Name : </b></label>
+        {{getbyiddata && getbyiddata.employee&& getbyiddata.employee.firstName + getbyiddata.employee.lastName}}
+      </div>
+      <div>
+        <label><b>Email : </b></label>
+        {{ getbyiddata && getbyiddata.employee&&getbyiddata.employee.email}}
+      </div> 
+      <div>
+        <label><b>Phone Number :</b></label>
+        {{ getbyiddata && getbyiddata.employee&&getbyiddata.employee.phoneNo}}
+      </div>
+      <div *ngIf="!showAssignButton">
+        <label><b>Experience : </b></label>
+        {{getbyiddata && getbyiddata.employee&&getbyiddata.employee.experience? totalDuration :  'Fresher'}} 
+        <!-- {{totalDuration}} -->
+      </div>
+      <div >
+        <label><b>Designation : </b></label>
+        {{hierarchyData && hierarchyData[id]?hierarchyData[id].roleName +','+ hierarchyData[id].department : 'Not Assigned Yet'}} 
+        <!-- {{totalDuration}} -->
+      </div>
+      <div >
+        <label><b>Manager : </b></label>
+        {{hierarchyData && hierarchyData[id]? hierarchyData[id].managerName : 'Not Assigned Yet'}} 
+        <!-- {{totalDuration}} -->
+      </div>
+    <!-- }@else {
+<h5>Not Available</h5>
+    } -->
+    </div>
+      
+    </mat-dialog-content>
+
+<mat-dialog-actions class="d-flex justify-content-between">
+
+ 
+  
+  <div *ngIf="!hierarchyData[id]" >
+  <button mat-button  ><a matDialogClose [routerLink]="['/assignemployee',id]">Assign</a></button>
+</div>
+<button mat-raised-button matDialogClose>Close</button>
+</mat-dialog-actions>
+</div>

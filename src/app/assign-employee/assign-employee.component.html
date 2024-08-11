@@ -1,0 +1,70 @@
+<div class="add-employee-container d-flex justify-content-center ">
+  <div class="card-body">
+    <mat-card class="card">
+      <mat-card-header class="mb-3 p-0 ">
+        <div class=" w-100">
+          <mat-card-title class="title w-100 text-center">Assign Employee  </mat-card-title>
+        </div>
+      </mat-card-header>
+      <mat-card-content>
+        <form class="form" [formGroup]="assigningForm" (ngSubmit)="onSubmit()">
+          <!-- {{assigningForm.value|json}}{{disableemployeeselect}} -->
+          <div class="row text-start mb-3">
+            <div class="col-6">
+              <label class="form-label">Employee Name</label>
+              <br />
+              <select class="form-select" formControlName="employee_id" id="manager">
+                <option  selected>Select Employee</option>
+                <option  *ngFor="let emp of filteredemployee||employeedata" [ngValue]="emp.empId">{{ emp.firstName+''+emp.lastName }}
+                </option>
+              </select>
+            </div>
+            <div class="col-4">
+              <label class="form-label">Employee Id</label>
+              <input type="number" class="form-control" formControlName="empId" readonly />
+            </div>
+          </div>
+          <div class="row text-start mb-3">
+            <div class="col-6">
+              <label class="form-label">Department</label>
+              <select type="text" class="form-select" formControlName="dept_id">
+                <option selected>Select Department</option>
+                <option *ngFor="let dept of departments;let i =index" [ngValue]="dept.dept_id">{{dept.department}}
+                </option>
+              </select>
+
+            </div>
+            <div class="col-6">
+              <label class="form-label">Job Role</label>
+              <select type="text" class="form-select" formControlName="role_id">
+                <option selected disabled>Select Job Role</option>
+                <!-- <option *ngIf="!managerName">Manager</option> -->
+                <option *ngFor="let role of filteredRole" [ngValue]="role.role_id">{{role.roleName}}</option>
+              </select>
+            </div>
+            <!-- <div class="col-6">
+              <label class="form-label">Manager</label>
+              <input type="text" class="form-control" formControlName="manager" readonly/>
+            </div> -->
+          </div>
+          <!-- <div class="row text-start mb-3" formGroupName="tech_lead" > -->
+            <div class="col-6">
+              <label class="form-label">Tech Lead</label>
+             
+              <!-- <input type="text" class="form-control" formControlName="manager" readonly /> -->
+              <select class="form-select"  formControlName="tech_lead"  >
+                <option selected disabled>Select Tech Lead</option>
+                <!-- <option>{{managerName}}</option> -->
+                <option *ngFor="let assemp of filteredassemp" [ngValue]="assemp.empId">{{assemp.firstName + assemp.lastName}}</option>
+              </select>
+            </div>
+          <!-- </div> -->
+          
+        </form>
+      </mat-card-content>
+      <mat-card-footer>
+          <button mat-button type="submit" (click)="onSubmit()">Assign</button>
+      </mat-card-footer>
+    </mat-card>
+  </div>
+</div>

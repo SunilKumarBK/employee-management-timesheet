@@ -1,0 +1,125 @@
+<div class="card">
+
+    <!--  card 1 -->
+    <mat-card class="box card1" [routerLink]="['/employee/employeelist']" matRipple [matRippleCentered]="true"
+        [matRippleUnbounded]="false">
+        <mat-card-header>
+            <a routerLink="/employeelist" routerLinkActive="active">
+                <p>Employee Details</p>
+            </a>
+
+        </mat-card-header>
+        <mat-card-content>
+            <p>Total No Of Employee's</p>
+            <div class="card-display">
+                <div class="  left">
+                    <h2> {{employeeNo.length}}</h2>
+                </div>
+                <div class="right">
+                    <span><mat-icon fontIcon="supervisor_account"></mat-icon></span>
+                </div>
+
+            </div>
+        </mat-card-content>
+        <mat-card-actions>
+
+        </mat-card-actions>
+    </mat-card>
+
+    <!--  -->
+    <!-- card2 -->
+
+    <mat-card class="box card2" routerLink="/assignemployee" matRipple [matRippleCentered]="true"
+        [matRippleUnbounded]="false">
+        <mat-card-header>
+            <a routerLink="/assignemployee" routerLinkActive="active">
+                <p>Assign Employee </p>
+            </a>
+
+        </mat-card-header>
+        <mat-card-content>
+            <div class="card-display">
+                <div class=" employeeno left">
+                    <span><mat-icon fontIcon="add"></mat-icon></span>
+                </div>
+
+            </div>
+        </mat-card-content>
+        <mat-card-actions>
+            <div class="right">
+                <span><mat-icon fontIcon="person_add"></mat-icon></span>
+            </div>
+        </mat-card-actions>
+    </mat-card>
+
+    <mat-card class="box card3">
+        <mat-card-header>
+            <a routerLink="" routerLinkActive="active">
+                <p>Notificatons !</p>
+            </a>
+        </mat-card-header>
+        <mat-card-content>
+            <!-- @if(addedmessage!=''){
+                {{addedmessage+employeeNo[this.negindex].firstName}}
+            }
+            @else if(deletedmessage!=''){
+                {{delmsg+deletedmessage}}
+            }
+            @else {
+                "No New Notification's Here!"
+            } -->
+            <!-- {{addedmessage}} -->
+            <!-- {{deletedmessage||'hi'}} -->
+            {{!deletedmessage?(addedmessage?addedmessage+employeeNo[this.negindex].firstName+employeeNo[this.negindex].created_time:"No NewNotification's Here!"):delmsg+deletedmessage}}
+        </mat-card-content>
+        <mat-card-actions>
+
+        </mat-card-actions>
+    </mat-card>
+    <mat-card class="box card4">
+        <mat-card-header class="">
+            <div class="d-flex gap-5">
+                <div>
+                    <a routerLink="" routerLinkActive="active" class="mb-0">
+                        <p class="mb-3">Employees Assigned / Total Employee: {{employeeNo.length}}</p>
+                    </a>
+                </div>
+                <div>
+                        <p class="mb-3">Employee Not Assigned / {{employeeNo && hierarchyData? employeeNo.length - hierarchyData.length||"All are assigned.":employeeNo.length}}</p>
+
+                </div>
+            </div>
+
+        </mat-card-header>
+
+        <mat-card-content class="">
+            <div class="d-flex gap-5">
+                <div>
+                    <ul class="">
+                        <li><b>IT</b> - {{departmentCounts['IT']||"NA"}}</li>
+                        <li><b>SALES</b> - {{departmentCounts['Sales']||"NA"}}</li>
+                        <li><b>ACCOUNTS</b> - {{departmentCounts['Accounts']||"NA"}}</li>
+                        <li><b>CUSTOMER SUPPORT</b> - {{departmentCounts['Customer Support']||"NA"}}</li>
+                    </ul>
+
+                </div>
+                <!-- <div style="margin-left:5%">
+                    <p class="mb-0">
+                        {{employeeNo && hierarchyData? employeeNo.length - hierarchyData.length||"All are assigned.":employeeNo.length}}
+                    </p>
+
+                </div> -->
+            </div>
+
+
+        </mat-card-content>
+
+        <mat-card-actions>
+
+            <!-- Add your card actions here -->
+        </mat-card-actions>
+    </mat-card>
+
+
+
+</div>

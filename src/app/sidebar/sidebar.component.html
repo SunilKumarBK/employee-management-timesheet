@@ -1,0 +1,19 @@
+<div class="sidebar" >
+    <div class="header">
+        <div>
+    <mat-icon fontIcon="menu" (click)="sidebar()"></mat-icon>
+</div>
+<div class="heading">
+    <p class="para" *ngIf="collapse" style="font-weight: 500;">Menu</p>
+</div>
+</div>
+    <ul>
+        <li><a routerLink="/dashboard" routerLinkActive="active"><mat-icon fontIcon="dashboard"></mat-icon><p *ngIf="collapse" style="font-weight: 500;margin:0%;font-size:medium;">Dashboard</p></a></li>
+        <li><a routerLink="/employeelist" routerLinkActive="active"><mat-icon fontIcon="supervisor_account"></mat-icon><p *ngIf="collapse" style="font-weight: 500;margin:0%;font-size:medium;">EmployeeList</p></a></li>
+        <li><a routerLink="/addemployee" routerLinkActive="active"> <mat-icon fontIcon="person_add"></mat-icon><p *ngIf="collapse" style="font-weight: 500;margin:0%;font-size:medium;">AddEmployee</p></a></li>
+        <li><a routerLink="/assignemployee" routerLinkActive="active"> <mat-icon fontIcon="add_box"></mat-icon><p *ngIf="collapse" style="font-weight: 500;margin:0%;font-size:medium;">AssignEmployee</p></a></li>
+        <li><a routerLink="/hierarchichal-chart" routerLinkActive="active"> <mat-icon fontIcon="insert_chart"></mat-icon><p *ngIf="collapse" style="font-weight: 500;margin:0%;font-size:medium;">OrgChart</p></a></li>
+        <!-- <li><a routerLink="/profile" routerLinkActive="active"> <mat-icon fontIcon="insert_chart"></mat-icon><p *ngIf="collapse" style="font-weight: 500;margin:0%;font-size:medium;">Profile</p></a></li> -->
+
+    </ul>
+</div>

@@ -1,0 +1,19 @@
+<div class="body" >
+  <header class="header">
+    <span><a (click)="goBack()"><mat-icon fontIcon="arrow_back" ></mat-icon></a></span>
+    <h2>Employee Hierarchy Chart</h2>
+  </header>
+<div class="chart-container">
+  <google-chart
+  [type]="charttype.OrgChart"
+  [data]="chartData"
+  [options]="chartOptions"
+  [dynamicResize]="true"
+  (select)="onSelect($event)"
+  style="width:400; height:300" 
+  >
+</google-chart>
+</div>
+</div>
+
+

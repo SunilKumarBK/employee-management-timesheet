@@ -1,0 +1,39 @@
+*{
+    font-family:Poppins,sans-serif
+}
+.navbar{
+    display: flex;
+    align-items: center;
+    background-color:darksalmon;
+    padding: 1%;
+    z-index: 9;
+    position: fixed;
+    width: 100%;
+    top: 0%;
+    box-shadow: 0 0 5px 1px;
+    height: 4em;
+}
+.title:hover{
+    /* transform: scale(1.01); */
+    transform: scale(0.99);
+    
+}
+.nav{
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    gap: 5%;
+    text-align: end;
+}
+.title{
+    text-decoration: none;
+    color:floralwhite;
+    font-size: 35px;
+    font-family: Poppins,sans-serif;
+    font-weight: 700;
+    transition: transform 0.3s ease;
+  transform-origin: center;
+}
+.btn{
+    padding-left: 10px;
+}

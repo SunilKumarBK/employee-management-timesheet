@@ -1,0 +1,234 @@
+<div class="add-employee-container d-flex justify-content-center ">
+  <div class="card-body">
+    <mat-card class="card">
+      <mat-card-header class="mb-3 p-0 ">
+        <div class=" w-100">
+          <mat-card-title class="title w-100">Add Employee Details</mat-card-title>
+        </div>
+      </mat-card-header>
+      <mat-card-content>
+
+        <!-- form -->
+        <form class="form" [formGroup]="employeeForm">
+          <!-- {{employeeForm.value|json}} -->
+
+          <div class="row text-start mb-3">
+            <div class="col-6">
+              <label class="form-label">First Name</label>
+              <input type="text" class="form-control" formControlName="firstName">
+              <small *ngIf="employeeForm.get('firstName').touched && employeeForm.get('firstName').errors?.['required']"
+                style="color:red;">First Name is required</small>
+              <small *ngIf="employeeForm.get('firstName').errors?.['minlength']" style="color:red;">Min 4 characters
+                required</small>
+            </div>
+            <div class="col-6">
+              <label class="form-label">Last Name</label>
+              <input type="text" class="form-control" formControlName="lastName">
+            </div>
+          </div>
+
+          <div class="row text-start mb-3">
+            <div class="col-6">
+              <label class="form-label">Email</label>
+              <input type="email" class="form-control" formControlName="email">
+              <small *ngIf="employeeForm.get('email').touched && employeeForm.get('email').errors?.['required']"
+                style="color:red;">Email is required</small>
+              <small *ngIf="employeeForm.get('email').errors?.['email']" style="color:red;">Invalid email format</small>
+            </div>
+            <div class="col-6">
+              <label class="form-label">Phone Number</label>
+              <input type="number" class="form-control" formControlName="phoneNo">
+              <small *ngIf="employeeForm.get('phoneNo').touched && employeeForm.get('phoneNo').errors?.['required']"
+                style="color:red;">Phone Number is required</small>
+            </div>
+          </div>
+
+          
+
+          <div class="row text-start mb-3">
+            <div class="col-6">
+              <label class="form-label">Father's Name</label>
+              <input type="text" class="form-control" formControlName="fatherName">
+            </div>
+            <div class="col-4">
+              <label class="form-label">DOB</label>
+              <input type="date" class="form-control" formControlName="dateOfBirth">
+            </div>
+          </div>
+
+          <div class="row text-start mb-3">
+            <div class="col-6">
+              <label class="form-label">Emergency Contact</label>
+              <input type="number" class="form-control" formControlName="emergencyContact">
+              <small
+                *ngIf="employeeForm.get('emergencyContact').touched && employeeForm.get('emergencyContact').errors?.['required']"
+                style="color:red;">Emergency Contact is required</small>
+            </div>
+            <div class="col-4">
+              <label class="form-label">New Employee Id</label>
+              <input type="number" class="form-control" formControlName="empId" >
+              <small *ngIf="employeeForm.get('empId').touched && employeeForm.get('empId').errors?.['required']"
+                style="color:red;">Employee ID is required</small>
+            </div>
+          </div>
+
+          <div class="row text-start mb-3">
+            <div class="col-8">
+              <label class="form-label">Address</label>
+              <textarea class="form-control" formControlName="address"></textarea>
+              <small *ngIf="employeeForm.get('address').touched && employeeForm.get('address').errors?.['required']"
+                style="color:red;">Address is required</small>
+            </div>
+              <div class="col-6">
+                <label class="form-label">Qualification</label>
+                <input type="text" class="form-control" formControlName="qualification">
+              </div>
+          </div>
+
+          <div class="row text-start mb-3">
+          <div class="col-4">
+            <!-- <div> -->
+            <label class="form-label">Experienced</label>
+            <!-- </div> -->
+            <div class="d-flex gap-2">
+              <input type="radio" id="exp-yes"  value="true" (click)="isEditMode?'': experience()" formControlName="experience">
+              <label class="form-label" for="exp-yes">Yes</label>
+              <input type="radio" id="exp-no"  value="false"  (click)="isEditMode?'':experiencee()" formControlName="experience">
+              <label class="form-label" for="exp-no">No</label>
+            </div>
+          </div>
+          </div>
+
+          
+
+          <div *ngIf="displayy" class="prevcompany">
+            <hr>
+
+            <h3>Previous Company Details</h3>
+            <div class="row text-start mb-3">
+              <div class="col-12">
+                <label>Company Name</label>
+                <input type="text" class="form-control" formControlName="companyName">
+                <small style="color: red;"
+                  *ngIf="employeeForm.get('companyName').invalid && employeeForm.get('companyName').touched">
+                  Company Name is Required
+                </small>
+              </div>
+            </div>
+
+            <div class="row text-start mb-3">
+              <div class="col-12">
+                <label>Position/Designation</label>
+                <input type="text" class="form-control" formControlName="designation">
+                <small style="color: red;"
+                  *ngIf="employeeForm.get('designation').invalid && employeeForm.get('designation').touched">
+                  Position is Required
+                </small>
+              </div>
+            </div>
+
+            <div class="row text-start mb-3">
+              <div class="col-6">
+                <label>Join Date</label>
+                <input type="date" class="form-control" formControlName="joinDate">
+                <small style="color: red;"
+                  *ngIf="employeeForm.get('joinDate').invalid && employeeForm.get('joinDate').touched">
+                  Joining Date is Required
+                </small>
+              </div>
+              <div class="col-6">
+                <label>End Date</label>
+                <input type="date" class="form-control" formControlName="relievedDate">
+                <small style="color: red;"
+                  *ngIf="employeeForm.get('relievedDate').invalid && employeeForm.get('relievedDate').touched">
+                  Relieving Date is Required
+                </small>
+              </div>
+            </div>
+
+            <div class="row text-start mb-3">
+              <div class="col-6">
+                <label>Period</label>
+                <input readonly class="form-control" formControlName="totalDuration"
+                  [value]="calculateDuration(employeeForm.get('joinDate').value, employeeForm.get('relievedDate').value)">
+
+              </div>
+            </div>
+            <button mat-button (click)="togglebtn()">+ Add another Company</button>
+
+          </div>
+
+        </form>
+        <!-- form ends -->
+
+
+        <!-- Addon company details -->
+        <div *ngIf="showxtra">
+          <form [formGroup]="secondcmpForm">
+            <hr/>
+          <h3>Second Company</h3>
+          <div class="row text-start mb-3"  >
+            <div class="col-12">
+              <label>Company Name</label>
+              <input type="text" class="form-control" formControlName="companyName" >
+              <small style="color: red;"
+                *ngIf=" secondcmpForm.get('companyName').invalid && secondcmpForm.get('companyName').touched">
+                Company Name is Required
+              </small>
+            </div>
+          </div>
+
+          <div class="row text-start mb-3">
+            <div class="col-12">
+              <label>Position/Designation</label>
+              <input type="text" class="form-control" formControlName="designation" >
+              <small style="color: red;"
+                *ngIf="secondcmpForm.get('designation').invalid && secondcmpForm.get('designation').touched">
+                Position is Required
+              </small>
+            </div>
+          </div>
+
+          <div class="row text-start mb-3">
+            <div class="col-6">
+              <label>Join Date</label>
+              <input type="date" class="form-control" formControlName="joinDate" >
+              <small style="color: red;"
+                *ngIf="secondcmpForm.get('joinDate').invalid && secondcmpForm.get('joinDate').touched">
+                Joining Date is Required
+              </small>
+            </div>
+            <div class="col-6">
+              <label>End Date</label>
+              <input type="date" class="form-control" formControlName="relievedDate" >
+              <small style="color: red;"
+                *ngIf="secondcmpForm.get('relievedDate').invalid && secondcmpForm.get('relievedDate').touched">
+                Relieving Date is Required
+              </small>
+            </div>
+          </div>
+
+          <div class="row text-start mb-3">
+            <div class="col-6">
+              <label>Period</label>
+              <input readonly class="form-control" formControlName="duration" 
+                [value]="calculateDuration(secondcmpForm.get('joinDate').value, secondcmpForm.get('relievedDate').value)">
+
+            </div>
+          </div>
+          </form>
+          <button *ngIf="showxtra" mat-button (click)="togglebtnremove()">- Remove</button>
+        </div>
+        <!-- Addon company details ends -->
+
+      </mat-card-content>
+      <mat-card-footer class="footer">
+        <button mat-stroked-button [disabled]="isSubmitDisabled()" *ngIf="!isEditMode"
+          (click)="onClick()">Submit</button>
+        <button mat-stroked-button *ngIf="isEditMode" (click)="onUpdate()">Edit</button>
+      </mat-card-footer>
+    </mat-card>
+  </div>
+ 
+
+</div>

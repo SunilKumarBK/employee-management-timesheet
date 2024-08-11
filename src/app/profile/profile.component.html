@@ -1,0 +1,280 @@
+<!-- <div class="add-employee-container d-flex justify-content-center ">
+    <div class="card-body"><mat-card class="card">
+    <mat-card-header class="mb-3 p-0 w-100">
+        <mat-card-title class="title mb-3">
+        Profile
+            </mat-card-title>
+        <mat-card-subtitle class=" w-100 mb-3">
+           Personal Details
+        </mat-card-subtitle>
+
+    </mat-card-header>
+    <img [src]="data" alt="image" width="200px"/>
+    <mat-card-content>
+        <form [formGroup]="profileForm">
+            {{profileForm.value|json}}
+            <div>
+                <input type="number" value=1 hidden formControlName="empId">
+            <div class="row text-start mb-3">
+                <div class="col-6">
+                  <label class="form-label">First Name</label>
+                  <input type="text" class="form-control" value={{employee.firstName}} formControlName="firstName"/>
+                  
+                </div>
+                <div class="col-6">
+                  <label class="form-label">Last Name</label>
+                  <input type="text" class="form-control" formControlName="lastName">
+                </div>
+              </div>
+              <div class="row text-start mb-3">
+                <div class="col-6">
+                  <label class="form-label">Email</label>
+                  <input type="email" class="form-control" formControlName="email">
+                  <small *ngIf="profileForm.get('email').touched && profileForm.get('email').errors?.['required']"
+                    style="color:red;">Email is required</small>
+                  <small *ngIf="profileForm.get('email').errors?.['email']" style="color:red;">Invalid email format</small>
+                </div>
+                <div class="col-6">
+                  <label class="form-label">Phone Number</label>
+                  <input type="number" class="form-control" formControlName="phoneNo">
+                  <small *ngIf="profileForm.get('phoneNo').touched && profileForm.get('phoneNo').errors?.['required']"
+                    style="color:red;">Phone Number is required</small>
+                </div>
+              </div>
+    
+    
+              <div class="row text-start mb-3">
+                <div class="col-6">
+                  <label class="form-label">Father's Name</label>
+                  <input type="text" class="form-control" formControlName="fatherName">
+                </div>
+                <div class="col-4">
+                  <label class="form-label">DOB</label>
+                  <input type="date" class="form-control" formControlName="dateOfBirth">
+                </div>
+              </div>
+    
+              <div class="row text-start mb-3">
+                <div class="col-6">
+                  <label class="form-label">Emergency Contact</label>
+                  <input type="number" class="form-control" formControlName="emergencyContact">
+                  <small
+                    *ngIf="profileForm.get('emergencyContact').touched && profileForm.get('emergencyContact').errors?.['required']"
+                    style="color:red;">Emergency Contact is required</small>
+                </div>
+              </div>
+              <div class="col-6">
+                <label class="form-label">Gender</label>
+                <br />
+                <select class="form-select" formControlName="gender" id="gender">
+                  <option  selected>Male</option>
+                  <option  selected>Female</option>
+                  <option  selected>Others</option>
+                </select>
+              </div>
+              <div class="row text-start mb-3">
+                <div class="col-8">
+                  <label class="form-label">Address</label>
+                  <textarea class="form-control" formControlName="address"></textarea>
+                  <small *ngIf="profileForm.get('address').touched && profileForm.get('address').errors?.['required']"
+                    style="color:red;">Address is required</small>
+                </div>
+              </div>
+              <div class="col-6 mb-3">
+                <label class="form-label">Marital Status</label>
+                <br />
+                <select class="form-select" formControlName="relationstatus" id="relationstatus">
+                  <option  selected>Single</option>
+                  <option  selected>Married</option>
+                  <option  selected>Widowed</option>
+                  <option  selected>Divorced</option>
+                </select>
+              </div>
+              <div class="col-4">
+                <label class="form-label">Blood Group</label>
+                <input type="text" class="form-control" formControlName="bloodgroup">
+              </div>
+            </div>
+            <div>
+                <mat-card-subtitle class="  w-100 mb-3">
+                    Documents
+                </mat-card-subtitle>
+                <div class="col-6">
+                    <label class="form-label">Aadhar</label>
+                    <br />
+                   <input type="file" (change)="onImagePicked($event, 'aadhar')" id="aadhar"/>
+                  </div>
+
+           
+            <div class="col-6">
+                <label class="form-label">Profile Photo</label>
+                <br />
+               <input type="file" (change)="onImagePicked($event, 'profilephoto')" id="profilephoto"/>
+              </div>
+
+        </div>
+        </form>
+
+    </mat-card-content>
+    <mat-card-footer>
+        <button type="submit" (click)="onSubmit()">Submit</button>
+    </mat-card-footer>
+</mat-card>
+</div>
+</div> -->
+
+
+
+
+<div class="add-employee-container d-flex justify-content-center">
+  <div class="card-body">
+    <mat-card class="card">
+      <mat-card-header class="mb-3 w-100 d-inline">
+        <div style="width:100%">
+          <mat-card-title class="title mb-3">Profile</mat-card-title>
+        </div>
+        <div style="    width: 100%;
+        /* float: right; */
+        /* text-align: end; */
+        position: relative;
+        left: 25px; ">
+        <img [src]="data?data:'/assets/default user image'" alt="Profile Photo" width="200px" />
+      </div>
+        <div>
+          <mat-card-subtitle class="w-100 mb-3">Personal Details</mat-card-subtitle>
+        </div>
+      </mat-card-header>
+     
+      <mat-card-content>
+        <form [formGroup]="profileForm">
+          <!-- {{profileForm.value | json}} -->
+          <input type="number" value="1" hidden formControlName="empId" />
+          <div class="row text-start mb-3">
+            <div class="col-6">
+              <label class="form-label">First Name</label>
+              <input type="text" class="form-control" formControlName="firstName" />
+            </div>
+            <div class="col-6">
+              <label class="form-label">Last Name</label>
+              <input type="text" class="form-control" formControlName="lastName" />
+            </div>
+          </div>
+          <div class="row text-start mb-3">
+            <div class="col-6">
+              <label class="form-label">Email</label>
+              <input type="email" class="form-control" formControlName="email" />
+              <small *ngIf="profileForm.get('email').touched && profileForm.get('email').errors?.['required']"
+                class="small" style="color:red;">Email is required</small>
+              <small *ngIf="profileForm.get('email').errors?.['email']" class="small" style="color:red;">Invalid email
+                format</small>
+            </div>
+            <div class="col-6">
+              <label class="form-label">Phone Number</label>
+              <input type="number" class="form-control" formControlName="phoneNo" />
+              <small *ngIf="profileForm.get('phoneNo').touched && profileForm.get('phoneNo').errors?.['required']"
+                class="small" style="color:red;">Phone Number is required</small>
+            </div>
+          </div>
+          <div class="row text-start mb-3">
+            <div class="col-6">
+              <label class="form-label">Father's Name</label>
+              <input type="text" class="form-control" formControlName="fatherName" />
+            </div>
+            <div class="col-4">
+              <label class="form-label">DOB</label>
+              <input type="date" class="form-control" formControlName="dateOfBirth" />
+            </div>
+          </div>
+          <div class="row text-start mb-3">
+            <div class="col-6">
+              <label class="form-label">Emergency Contact</label>
+              <input type="number" class="form-control" formControlName="emergencyContact" />
+              <small
+                *ngIf="profileForm.get('emergencyContact').touched && profileForm.get('emergencyContact').errors?.['required']"
+                class="small" style="color:red;">Emergency Contact is required</small>
+            </div>
+            <div class="col-6">
+              <label class="form-label">Gender</label>
+              <select class="form-select" formControlName="gender" id="gender">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Others">Others</option>
+              </select>
+            </div>
+          </div>
+          <div class="row text-start mb-3">
+            <div class="col-8">
+              <label class="form-label">Address</label>
+              <textarea class="form-control" formControlName="address"></textarea>
+              <small *ngIf="profileForm.get('address').touched && profileForm.get('address').errors?.['required']"
+                class="small" style="color:red;">Address is required</small>
+            </div>
+          </div>
+          <div class="row text-start mb-3">
+            <div class="col-6 mb-3">
+              <label class="form-label">Marital Status</label>
+              <div class="form-check">
+                <input type="radio" id="single" name="relationstatus" value="Single" formControlName="relationstatus"
+                  class="form-check-input">
+                <label for="single" class="form-check-label">Single</label>
+              </div>
+              <div class="form-check">
+                <input type="radio" id="married" name="relationstatus" value="Married" formControlName="relationstatus"
+                  class="form-check-input">
+                <label for="married" class="form-check-label">Married</label>
+              </div>
+              <div class="form-check">
+                <input type="radio" id="widowed" name="relationstatus" value="Widowed" formControlName="relationstatus"
+                  class="form-check-input">
+                <label for="widowed" class="form-check-label">Widowed</label>
+              </div>
+              <div class="form-check">
+                <input type="radio" id="divorced" name="relationstatus" value="Divorced"
+                  formControlName="relationstatus" class="form-check-input">
+                <label for="divorced" class="form-check-label">Divorced</label>
+              </div>
+            </div>
+
+            <div class="col-4">
+              <label class="form-label">Blood Group</label>
+              <input type="text" class="form-control" formControlName="bloodgroup" />
+            </div>
+          </div>
+          <mat-card-subtitle class="w-100 mb-3">Documents</mat-card-subtitle>
+          <div class="col-6">
+            <label class="form-label">Aadhar</label>
+            <div class="file-input-wrapper">
+              <input type="file" (change)="onImagePicked($event, 'aadhar')" id="aadhar" class="file-input" />
+              <span class="file-input-label">Choose file</span>
+            </div>
+            <!-- Provide Download Link for Aadhar PDF -->
+            <div *ngIf="aadharPdfUrl">
+              <!-- {{*ngIf="aadharPdfUrl"}} -->
+              <h3>Aadhar Document:</h3>
+              <button class="aadharpdfbtn" (click)="downloadAadharPdf()">Download Aadhar PDF</button><span style="width: fit-content;
+              position: relative;
+              top: 10px;
+              right: -10px;"><mat-icon style="font-size: larger;" fontIcon="download"></mat-icon></span>
+            </div>
+          </div>
+          <div class="col-6">
+            <label class="form-label">Profile Photo</label>
+            <div class="file-input-wrapper">
+              <input type="file" (change)="onImagePicked($event, 'profilephoto')" id="profilephoto"
+                class="file-input" />
+              <span class="file-input-label">Choose file</span>
+            </div>
+          </div>
+
+        </form>
+      </mat-card-content>
+      <mat-card-footer style="padding: 2%;text-align: center;">
+        @if (getdocuments) {
+        <button type="submit" (click)="onUpdate()">Update</button>
+        }@else{
+        <button type="submit" (click)="onSubmit()">Submit</button>
+        }
+      </mat-card-footer>
+    </mat-card>
+  </div>
+</div>
